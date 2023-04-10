@@ -265,12 +265,16 @@ class ModelosMachineLearning(models.Model):
         self.proyecto = proyecto
         self.name= nombre_modelo_ml
         self.set_supports_y_ohe()
-        
-        (modelo,study) = self.entrenarModeloOptuna(nombremodelo=nombre_modelo_ml)
-        self.save_modelo(modelo=modelo)
-        self.optuna = True
         self.ensemble_model = False
-        self.save_optuna(study=study)
+        try:
+            (modelo,study) = self.entrenarModeloOptuna(nombremodelo=nombre_modelo_ml)
+            self.save_modelo(modelo=modelo)
+            self.optuna = True
+            self.save_optuna(study=study)
+        except:
+            (modelo) = self.entrenarModeloOptuna(nombremodelo=nombre_modelo_ml)
+            self.save_modelo(modelo=modelo)
+            self.optuna = False
         self.save_balanced_score()
         if (self.get_metrica_modelo()==0.5) & (not self.is_regresion()) & (str(self.name).lower()=="random forest"):
             raise("Este modelo no se ha entrenado bien")
