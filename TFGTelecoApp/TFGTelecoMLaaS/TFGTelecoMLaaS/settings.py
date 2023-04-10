@@ -62,7 +62,7 @@ ROOT_URLCONF = 'TFGTelecoMLaaS.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/nacho/TFGTelecoApp/TFGTelecoMLaaS/TFGTelecoMLaaSApp/templates'],
+        'DIRS': [str(BASE_DIR)+'/TFGTelecoMLaaS/TFGTelecoMLaaSApp/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
