@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mx_*ad_*z0lo=%c5ezzj02n^#j*m3k@3&+kiloafs^fc8wpu)x'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -83,14 +83,11 @@ WSGI_APPLICATION = 'TFGTelecoMLaaS.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tfgmlaas',
-        'USER':'postgres',
-        'PASSWORD':'nachodivasson',
-        'HOST':'127.0.0.1',
-        'DATABASE_PORT':'5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
