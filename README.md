@@ -12,7 +12,9 @@ Proyecto de Machine Learning as a service de la carrera de Ingeniería de Teleco
 
 ## Para encenderlo
 Una vez lo anterior haya terminado, para encenderlo, tienes que escribir lo siguiente: 
+
 1.-Primero escribir: cd .\TFGTelecoApp\TFGTelecoMLaaS\
+
 2.-Después escribir: python manage.py runserver
 
 
