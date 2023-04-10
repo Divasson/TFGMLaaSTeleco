@@ -8,7 +8,7 @@ def getListaModelosClasificacion(binaryClass=False):
         ("KNN","KNN"),
         ("SVC","SVC"),
         ("Logistic Regression","Logistic Regression"),
-        #("Random Forest","Random Forest"),
+        ("Random Forest","Random Forest"),
         ("Neural Network","Neural Network"),
     ]
     return lista
@@ -16,7 +16,7 @@ def getListaModelosClasificacion(binaryClass=False):
 def getListaModelosRegresion():
     lista = [
         ("ElasticNetCV","ElasticNetCV"),
-        #("Random Forest","Random Forest"),
+        ("Random Forest","Random Forest"),
         ("KNN","KNN"),
         ("Neural Network","Neural Network"),
         ("Linear Regression","Linear Regression"),

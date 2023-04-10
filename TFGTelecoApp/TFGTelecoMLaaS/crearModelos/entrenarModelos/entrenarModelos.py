@@ -380,8 +380,7 @@ def train_SVR_optuna(modelo):
     model = SVR(kernel=study.best_params["kernel"],
                 C=study.best_params["C"],
                 gamma=study.best_params["gamma"],
-                degree=study.best_params["degree"],
-                probability=True)
+                degree=study.best_params["degree"])
     model.fit(X_train,y_train)
     return (model,study)
 
@@ -430,7 +429,7 @@ def train_neural_network_optuna(modelo):
             model = keras.models.Sequential()
             for i in range(hidden_layer_sizes):
                 model.add(keras.layers.Dense(neurons_per_layer,activation=activation_function))
-            model.add(keras.layers.Dense(1,activation="linear"))
+            model.add(keras.layers.Dense(1))
 
             X_train_2, X_val, y_train_2, y_val = train_test_split(X_train, y_train, test_size=0.2)
 
@@ -478,7 +477,7 @@ def train_neural_network_optuna(modelo):
         model = keras.models.Sequential()
         for i in range(study.best_params["hidden_layer_sizes"]):
             model.add(keras.layers.Dense(study.best_params["neurons_per_layer"],activation=study.best_params["activation_function"]))
-        model.add(keras.layers.Dense(1,activation="linear"))
+        model.add(keras.layers.Dense(1))
 
         X_train_2, X_val, y_train_2, y_val = train_test_split(X_train, y_train, test_size=0.2)
 

@@ -24,7 +24,7 @@ def inicio(request,id_project,cambiar=None):
             if project.project_state>7:
                 return redirect('/vizProject/'+str(id_project))
             else:
-                return redirect('/modelsProject/preprocesado/'+str(id_project))
+                return redirect('/modelsProject/elegirModelos/'+str(id_project))
         elif project.project_state<4:
             return redirect('/initProject/analisisDescriptivo/seleccionarVariable/'+str(id_project))
     

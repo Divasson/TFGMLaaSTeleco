@@ -362,7 +362,7 @@ def compare_residuals(listaModelos,X_,y_,project,nombreModeloSeleccionado,error_
 
 def study_to_html(study):
     fig1 = optuna.visualization.plot_optimization_history(study)
-    fig1.update_layout(yaxis_title="Balanced Accuracy",xaxis_title="Intento")
+    fig1.update_layout(yaxis_title="Metric",xaxis_title="Intento")
     try:
         fig2 = optuna.visualization.plot_param_importances(study)
         return (fig1.to_html(),fig2.to_html())

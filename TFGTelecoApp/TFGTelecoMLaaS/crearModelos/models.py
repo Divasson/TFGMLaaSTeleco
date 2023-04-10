@@ -136,7 +136,9 @@ class ModelosMachineLearning(models.Model):
             if not self.proyecto.is_regresion():
                 if self.get_supports_y_ohe():
                     pred = pred.argmax(axis=1)    
-        
+            else:
+                if self.get_nombre_modelo() == "Neural Network".lower():
+                    pred = np.concatenate(pred)
             return pred
         else:
             X_transformed = X
