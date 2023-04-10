@@ -1,7 +1,7 @@
 from itertools import count
 import math
 from django.shortcuts import render,HttpResponse, redirect
-from .forms import ProjectForm,handle_uploaded_file
+from .forms import *
 from django.core.files.storage import FileSystemStorage
 import pandas as pd
 
@@ -32,16 +32,45 @@ def create_project(request):
     return render(request, 'crearProyectos.html', {'form': form})
 
 
-
 def seeProyects(request):
     user = request.user
     print(user)
     if not user.is_authenticated:
         return redirect('/index.html')
     
-    projects = request.user.projects.all()
+    projects = request.user.projects.all()[::-1]
     print(projects)
     return render(request,'menuProyectos.html',{'projects': projects})
+    
+def deleteProyects(request):
+    user = request.user
+    print(user)
+    if not user.is_authenticated:
+        return redirect('/index.html')
+    
+    projects = request.user.projects.all()[::-1]
+    if len(projects)<1:
+        return redirect("/projects/")
+    
+    choices = [(project.get_nombre_proyecto(),project.get_nombre_proyecto()) for project in list(projects)]
+    if request.POST:
+        modelos_seleccionados = list(request.POST.getlist('modelos_a_eliminar'))
+        if len(modelos_seleccionados)<1:
+            return redirect("/projects/")
+        else:
+            for project in projects:
+                if project.get_nombre_proyecto() in modelos_seleccionados:
+                    project.borrar_todos_archivos_vinculados()
+                    project.delete()
+            return redirect("/projects/")
+
+    context = {}
+    
+    context["formulario"] = DeleteProjectsForm(choices=choices)
+    
+    
+    return render(request,"deleteProyectos.html",context=context)
+        
     
     
 

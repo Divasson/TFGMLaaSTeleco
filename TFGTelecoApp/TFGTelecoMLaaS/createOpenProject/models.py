@@ -1,4 +1,5 @@
 import errno
+import shutil
 from django.db import models
 from django.db import models
 from sklearn.compose import ColumnTransformer
@@ -135,7 +136,67 @@ class Project(models.Model):
         if len(lista_modelos_asociados)>0:
             for modelo_entrenado in lista_modelos_asociados:
                 modelo_entrenado.delete()
-            
+            if os.path.exists(str(settings.BASE_DIR)+"/documents/models/project_{}".format(self.id)):
+                shutil.rmtree(str(settings.BASE_DIR)+"/documents/models/project_{}".format(self.id))
+        return True
+    
+    def delete_treat_na_files(self):
+        if self.is_archivo_tratar_na():
+            for file in os.listdir(str(settings.BASE_DIR)+"/documents/treat_na/"):
+                if file.startswith("project_{}_d".format(self.id)):
+                    print(file)
+                    os.remove(str(settings.BASE_DIR)+"/documents/treat_na/"+file)
+        return True
+    
+    def delete_temp_files(self):
+        if os.path.exists(str(settings.BASE_DIR)+"/documents/temp_files/{}".format(self.id)):
+            shutil.rmtree(str(settings.BASE_DIR)+"/documents/temp_files/{}".format(self.id))
+        return True
+    
+    def delete_dtypes_files_with_project(self):
+        if self.is_archivo_dtypes():
+            for file in os.listdir(str(settings.BASE_DIR)+"/documents/tiposDatosProcesados/"):
+                if file.startswith("project_{}_d".format(self.id)):
+                    print(file)
+                    os.remove(str(settings.BASE_DIR)+"/documents/tiposDatosProcesados/"+file)
+        return True
+    
+    def delete_after_pipe_files(self):
+        if os.path.isdir(str(settings.BASE_DIR)+"/documents/data_after_pipe/"+str(self.id)):
+            for root, dirs, files in os.walk(str(settings.BASE_DIR)+"/documents/data_after_pipe/"+str(self.id), topdown=False):
+                for name in files:
+                    os.remove(os.path.join(root, name))
+                for name in dirs:
+                    os.rmdir(os.path.join(root, name))
+            os.rmdir(str(settings.BASE_DIR)+"/documents/data_after_pipe/"+str(self.id))
+    
+    def delete_datasets_processed(self):
+        if self.is_archivo_datos_without_na():
+            for file in os.listdir(str(settings.BASE_DIR)+"/documents/datasetsProyectosProcesados/"):
+                if file.startswith("project_{}_d".format(self.id)):
+                    print(file)
+                    os.remove(str(settings.BASE_DIR)+"/documents/datasetsProyectosProcesados/"+file)
+        return True
+        
+    
+    def borrar_todos_archivos_vinculados(self):
+        #borrado de modelos asociados
+        self.delete_modelos_asociados()
+        # borro archivos de tratar na
+        self.delete_treat_na_files()
+        # borro archivos temporales de prediccion
+        self.delete_temp_files()
+        # borro archivos tipos de datos
+        self.delete_dtypes_files_with_project()
+        # borro datos after_pipe
+        self.delete_after_pipe_files()
+        # borro datos proyectos procesados
+        self.delete_datasets_processed()
+        # borro fichero asociado al proyecto
+        os.remove(str(settings.BASE_DIR)+str(self.archivoDatos.url))
+        
+        return True
+        
         
     
     ######################################################################################################
@@ -148,6 +209,9 @@ class Project(models.Model):
     
     def get_tipo_prediccion(self):
         return self.tipo_prediccion
+    
+    def get_nombre_proyecto(self):
+        return self.projectName
     
     def get_variable_a_predecir(self):
         return self.variable_a_predecir

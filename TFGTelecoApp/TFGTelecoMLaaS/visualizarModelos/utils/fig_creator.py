@@ -25,7 +25,8 @@ def get_confusion_matrix(model,X_,y_,pred_dict):
     
        
     x = list(pred_dict.values())
-    y = list(pred_dict.values())
+    x = [str(i) for i in x]
+    y = x[::-1] # Invertir valores
     
         
     """ if str(type(model)) not in listaModelosNotOHE:
@@ -35,18 +36,30 @@ def get_confusion_matrix(model,X_,y_,pred_dict):
                         y_pred=np.vectorize(pred_dict.get)(pred_val),
                         labels=list(pred_dict.values()))
     z_2 = z[::-1] # Invertir valores
-    y = y[::-1] # Invertir valores
     
     
-    fig = ff.create_annotated_heatmap(
+    print(z)
+    print(z_2)
+    if not all(value.isdigit() for value in x):
+        fig = ff.create_annotated_heatmap(
+            x               = x,
+            y               = y,
+            z               = z_2,
+            annotation_text = z_2,
+            hoverinfo       = 'z',
+            colorscale      = px.colors.diverging.RdYlGn,
+            #font_colors     = ["#000000","#ffffff"],
+        )
+    else:
+        fig = ff.create_annotated_heatmap(
             x               = x,
             y               = y,
             z               = z_2,
             annotation_text = z,
             hoverinfo       = 'z',
             colorscale      = px.colors.diverging.RdYlGn,
-            font_colors     = ["#000000","#ffffff"],
-    )
+            #font_colors     = ["#ffffff","#000000"],
+        )
     fig.update_layout(title="Matriz de confusión",xaxis_title="Valores predichos",yaxis_title="Valores verdaderos")
     return fig.to_html()
 
