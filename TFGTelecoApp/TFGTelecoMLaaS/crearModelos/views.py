@@ -34,7 +34,7 @@ def inicio(request,id_project,cambiar=None):
         if modo=="Experto":
             project.project_state = 5
             project.save()
-            return redirect('elegirModelos/'+str(id_project))
+            return redirect('/modelsProject/elegirModelos/'+str(id_project))
         else:
             listaModelos = 0
             if project.is_regresion():
