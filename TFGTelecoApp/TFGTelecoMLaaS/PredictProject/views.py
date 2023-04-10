@@ -1,17 +1,13 @@
 import json
-from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
-from django.contrib import messages
 from createOpenProject.models import Project
 import pandas as pd
-from django.conf import settings
 from PredictProject import plotlyDescriptivo
 from .forms import ChangeDataTypeForm, FormularioVariables,FormularioVariableaPredecir,FormularioTipoPrediccion, TratarNA
 from PredictProject.utils import utils
 import numpy as np
 from django.core.files.base import ContentFile,File
 from sklearn.utils import shuffle
-#from django.utils import timezone
 from datetime import datetime
 
 

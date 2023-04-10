@@ -1,12 +1,6 @@
 import crearModelos.utils.utils as ut_modelos
-import numpy as np
-import pandas as pd
 from crearModelos.models import ModelosMachineLearning
 from createOpenProject.models import Project
-from django.conf import settings
-from django.contrib import messages
-from django.core.files.base import ContentFile, File
-from django.http import HttpResponseRedirect
 from django.shortcuts import redirect, render
 from PredictProject import plotlyDescriptivo, utils
 from PredictProject.utils import utils

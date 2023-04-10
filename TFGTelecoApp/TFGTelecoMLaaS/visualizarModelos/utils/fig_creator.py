@@ -1,7 +1,3 @@
-from itertools import count
-import math
-from urllib.parse import urlencode
-
 import numpy as np
 import optuna
 import pandas as pd
@@ -12,7 +8,7 @@ import plotly.graph_objects as go
 from sklearn.metrics import (classification_report, confusion_matrix,
                              roc_auc_score, roc_curve)
 
-from PredictProject.plotlyDescriptivo import getColorsforVariable,getOrden
+from PredictProject.plotlyDescriptivo import getOrden
 from crearModelos.models import ModelosMachineLearning
 
 

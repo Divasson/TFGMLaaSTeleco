@@ -3,7 +3,6 @@ from django.db import models
 import numpy as np
 import pandas as pd
 from createOpenProject.models import Project
-from django.core.files.base import ContentFile,File
 import joblib
 import os
 from sklearn.metrics import balanced_accuracy_score,mean_absolute_percentage_error, mean_squared_error

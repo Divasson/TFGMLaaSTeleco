@@ -1,14 +1,9 @@
-import csv
-from itertools import count
-import math
 from django.shortcuts import render,HttpResponse, redirect
-from django.core.files.storage import FileSystemStorage
 import numpy as np
 import pandas as pd
 from PredictProject.utils import utils
 from crearModelos.models import ModelosMachineLearning
 from createOpenProject.models import Project
-from openpyxl import Workbook
 from django.http import HttpResponse
 from .forms import *
 

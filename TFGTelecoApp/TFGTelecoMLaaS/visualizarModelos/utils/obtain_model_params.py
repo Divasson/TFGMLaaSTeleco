@@ -1,6 +1,3 @@
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.svm import SVC
-
 
 def get_modelo_params(modelo,tipoModelo):
     if str(tipoModelo).lower() == "knn":

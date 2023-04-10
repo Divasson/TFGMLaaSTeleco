@@ -1,9 +1,5 @@
-from itertools import count
-import math
-from django.shortcuts import render,HttpResponse, redirect
+from django.shortcuts import render, redirect
 from .forms import *
-from django.core.files.storage import FileSystemStorage
-import pandas as pd
 
 # Create your views here.
 
