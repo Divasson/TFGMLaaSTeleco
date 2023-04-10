@@ -6,9 +6,13 @@ Proyecto de Machine Learning as a service de la carrera de Ingeniería de Teleco
 
 1.-Descargar carpeta de datos, junto con el requirements.txt y guardar en local
 
-2.-En la carpeta donde se han descargado los datos, hacer click derecho y pinchar en Abrir en Terminal
+2.-En la carpeta donde se han descargado los datos (y está el archivo requirements.txt), hacer click derecho y pinchar en Abrir en Terminal
 
 3.-En el terminal, escribir lo siguiente y darle a enter: pip install -r requirements.txt
 
 ## Para encenderlo
-Una vez lo anterior haya terminado, para encenderlo, tienes que escribir lo siguiente: python manage.py runserver
+Una vez lo anterior haya terminado, para encenderlo, tienes que escribir lo siguiente: 
+1.-Primero escribir: cd .\TFGTelecoApp\TFGTelecoMLaaS\
+2.-Después escribir: python manage.py runserver
+
+
