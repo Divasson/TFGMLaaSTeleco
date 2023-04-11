@@ -21,4 +21,4 @@ Una vez lo anterior haya terminado, para encenderlo, tienes que escribir lo sigu
 
 2.-Después escribir: ```python manage.py runserver```
 
-3.-Finalmente abrir el navegador y poner: ```localhost:8000```
+3.-Finalmente abrir el navegador y poner en la barra de búsqueda: ```localhost:8000```
