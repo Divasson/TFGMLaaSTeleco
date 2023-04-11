@@ -1,5 +1,5 @@
 # TFGMLaaSTeleco
-Proyecto de Machine Learning as a service de la carrera de Ingeniería de Telecomunicaciones con Business Analytics
+Proyecto de Machine Learning as a Service de la carrera de Ingeniería de Telecomunicaciones con Business Analytics
 
 ## Para instalar
 0.-Tener instalado Python en el ordenador. Si Python no está instalado, se puede descargar en la tienda de Microsoft (o escribiendo ```python``` en la línea de comandos)
