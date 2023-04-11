@@ -12,6 +12,7 @@ Proyecto de Machine Learning as a Service de la carrera de Ingeniería de Teleco
 
 4.-Si el código de antes da problemas, abra la aplicación WINDOWS POWERSHELL como Administrador y ponga: ```New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
 -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force```.
+
 Posteriormente, vuelva a intentar el código ```pip install -r requirements.txt```
 
 ## Para encenderlo
