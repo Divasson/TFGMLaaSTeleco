@@ -68,10 +68,7 @@ def inicio(request,id_project,cambiar=None):
     context["proyecto"]=project
     
     context["formularioModo"]=FormularioModoFacilModoExperto()
-    if project.is_regresion():
-        context["tipo"]="regresión"
-    else:
-        context["tipo"]="clasificación"
+    context["tipo"] = project.get_tipo_prediccion()
     
     
     return render(request,"modoFacilModoExperto.html",context=context)
@@ -148,15 +145,14 @@ def elegirModelos(request,id_project,cambiar=None):
         
     context = {}
     context["proyecto"]=project
+    context["tipo"] = project.get_tipo_prediccion()
     if project.is_regresion():
         context["formulario"]=FormularioModelosRegresion(choices = utils_list_modelos.getListaModelosRegresion())
-        context["tipo"] = "regresion"
     else:
         df = project.get_data()
         binary = False
         
         context["formulario"]=FormularioModelosClasificacion(choices = utils_list_modelos.getListaModelosClasificacion(binaryClass=project.is_binary_model()))
-        context["tipo"] = "clasificación"
         
     listaModelos = project.is_modelos_seleccionados()
     if listaModelos:

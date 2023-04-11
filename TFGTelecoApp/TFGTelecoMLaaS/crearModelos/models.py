@@ -137,7 +137,7 @@ class ModelosMachineLearning(models.Model):
                 if self.get_supports_y_ohe():
                     pred = pred.argmax(axis=1)    
             else:
-                if self.get_nombre_modelo() == "Neural Network".lower():
+                if self.get_nombre_modelo().lower() == "Neural Network".lower():
                     pred = np.concatenate(pred)
             return pred
         else:
