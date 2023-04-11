@@ -11,7 +11,8 @@ Proyecto de Machine Learning as a service de la carrera de Ingeniería de Teleco
 3.-En el terminal, escribir lo siguiente y darle a enter: ```pip install -r requirements.txt```
 
 4.-Si el código de antes da problemas, abra la aplicación WINDOWS POWERSHELL como Administrador y ponga: ```New-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" `
--Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force```
+-Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force```.
+Posteriormente, vuelva a intentar el código ```pip install -r requirements.txt```
 
 ## Para encenderlo
 Una vez lo anterior haya terminado, para encenderlo, tienes que escribir lo siguiente: 
@@ -19,5 +20,7 @@ Una vez lo anterior haya terminado, para encenderlo, tienes que escribir lo sigu
 1.-Primero escribir: ```cd .\TFGTelecoApp\TFGTelecoMLaaS\```
 
 2.-Después escribir: ```python manage.py runserver```
+
+3.-Finalmente abrir el navegador y poner: ```localhost:8000```
 
 
