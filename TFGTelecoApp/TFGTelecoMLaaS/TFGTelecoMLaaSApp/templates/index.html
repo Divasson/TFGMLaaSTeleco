@@ -18,6 +18,7 @@
   <link rel="mask-icon"                           href="{% static 'assets/img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -74,8 +75,9 @@
             <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
             <p>Modelos de Clasificación</p>
           </div>
-          <div class="col-lg-3 col-6 text-center">
-            <p>Con la posibilidad de que trabajen juntos</p>
+          <div class="col-lg-3 col-6 text-center" style="display: flex; flex-direction: column; align-items: center">
+            <i class="fas fa-check" style="color:#35dba0;font-size:40px; margin-bottom: 10px; margin-top:5%"></i>
+            <p style="margin-top: 5px;">Con la posibilidad de que trabajen juntos</p>
           </div>
 
         </div>
@@ -126,8 +128,11 @@
                 <img src="{% static 'Images/artificial intelligence.jpg' %}" alt="...">
               </div>
               <div class="card-body">
-                <h5 class="card-title"><a href="">Elegir Modelos de Predicción</a></h5>
-                <p class="card-text">Estos modelos de predicción se podrán comparar posteriormente</p>
+                <h5 class="card-title"><a href="">Entrenar Modelos de Predicción</a></h5>
+                <p class="card-text">Estos modelos de predicción se podrán comparar posteriormente y se utilizarán para predecir tus nuevos datos
+                  <br>
+                  Si no sabes qué modelos quieres, ¡entrénalos todos!
+                </p>
               </div>
             </div>
           </div>
@@ -152,18 +157,21 @@
               </div>
               <div class="card-body">
                 <h5 class="card-title"><a href="">Posibilidad de hacer Ensembles</a></h5>
-                <p class="card-text">Se ofrecerá la posibilidad de hacer ensembles entre los modelos entrenados</p>
+                <p class="card-text">Se ofrecerá la posibilidad de hacer ensembles entre los modelos entrenados
+                  <br>
+                  Un ensemble es que los modelos trabajen juntos para así conseguir predecir mejor tus datos
+                </p>
               </div>
             </div>
           </div>
           <div class="col-md-6 d-flex align-items-stretch">
             <div class="card">
               <div class="card-img">
-                <img src="{% static 'Images/download.jpg' %}" alt="...">
+                <img src="{% static 'Images/predict_growth.jpg' %}" alt="...">
               </div>
               <div class="card-body">
-                <h5 class="card-title"><a href="">Descarga del modelo para que lo puedas utilizar</a></h5>
-                <p class="card-text">Una vez estés contento con el modelo, lo podrás descargar y utilizar libremente</p>
+                <h5 class="card-title"><a href="">Predice con tus nuevos datos</a></h5>
+                <p class="card-text">Con los modelos ya entrenados, podrás predecir con tus nuevos datos y así predecir el futuro con más posibilidad de acierto</p>
               </div>
             </div>
 
