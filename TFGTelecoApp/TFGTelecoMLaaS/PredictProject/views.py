@@ -130,6 +130,11 @@ def confirm_data(request,id_project,cambiarVar=None):
         df[project.get_variable_a_predecir()] = df[project.get_variable_a_predecir()].astype("object")
     
     df = df.copy()
+    df2 = df.copy()
+    for col in np.setdiff1d(df2.columns,project.get_variable_a_predecir()):
+        df2[col] = df2[col].astype("object")
+        if df2[col].value_counts()[0] <= 3:
+            df[col] = df[col].astype("object")
 
     if request.method == 'POST':
         form = ChangeDataTypeForm(request.POST, columns=list(df.columns),dict_initial=df.dtypes)
